@@ -1,18 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HeaderComp titulo="Entrega Vue Cli Ecomerce"/>
+    <NavComp/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavComp from './components/NavComp.vue';
+import HeaderComp from './components/HeaderComp.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    NavComp,
+    HeaderComp
+  },
+  mounted(){
+    this.$store.dispatch('getDevices');
+  },
 }
 </script>
 
